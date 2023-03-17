@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+
+.single-product-view {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 30px 20px 40px;
+}
+
+.product-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 1000px;
+}
+
+.product-image {
+  width: 500px;
+  height: 600px;
+  background-size: cover;
+  border: none;
+  border-radius: 10px;
+  padding: 0px 20px 0px 0px;
+}
+
+.heading {
+  font-size: 30px;
+  font-weight: bold;
+  color: #1e293b;
+}
+
+.price-tag {
+  font-size: 14px;
+  font-weight: bold;
+  color: #171f46;
+}
+
+.review-ratings {
+  display: flex;
+  align-items: center;
+}
+
+.rating-container {
+  width: 50px;
+  height: 25px;
+  background-color: #3b82f6;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 10px 0px 0px;
+}
+
+.rating-text {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.star-rating {
+}
+
+.review-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #171f46;
+}
+
+.description {
+  color: #616e7c;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.available-text {
+  color: #12022f;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.span-ele {
+  color: #616e7c;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.adding-quantity {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.adding-quantity p {
+  color: #0d0d0e;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0px 10px;
+}
+
+.add-sub-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: #171f46;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #cbced2;
+}
+
+.add-to-cart-button {
+  cursor: pointer;
+  background-color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+}
+
+.similar-products {
+  width: 1000px;
+  margin: 0px;
+}
