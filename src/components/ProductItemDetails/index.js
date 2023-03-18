@@ -1,7 +1,8 @@
 import {useState, useEffect} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {BsPlus, BsDash, BsStar} from 'react-icons/bs'
+import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
+import {AiFillStar} from 'react-icons/ai'
 
 import './index.css'
 import Header from '../Header'
@@ -22,6 +23,16 @@ const ProductItemDetails = props => {
   const [currentApiStatus, setCurrentApiStatus] = useState(apiStatus.initial)
   const [quantity, setQuantity] = useState(1)
 
+  const clickAddingPlus = () => {
+    setQuantity(q => q + 1)
+  }
+
+  const clickSubQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(q => q - 1)
+    }
+  }
+
   const getSuccessFullViewOfProduct = () => (
     <>
       <Header />
@@ -29,16 +40,16 @@ const ProductItemDetails = props => {
         <div className="product-container">
           <img
             src={productObject.image_url}
-            alt={productObject.title}
+            alt="product"
             className="product-image"
           />
           <div>
-            <h1 className="heading">{productObject.style}</h1>
+            <h1 className="heading">{productObject.title}</h1>
             <p className="price-tag">Rs {productObject.price}</p>
             <div className="review-ratings">
               <div className="rating-container">
                 <p className="rating-text">{productObject.rating}</p>
-                <BsStar className="star-rating" />
+                <AiFillStar className="star-rating" />
               </div>
               <p className="review-text">
                 {productObject.total_reviews} Reviews
@@ -54,30 +65,71 @@ const ProductItemDetails = props => {
             </p>
             <hr />
             <div className="adding-quantity">
-              <button type="button" className="add-sub-quantity">
-                <BsPlus />
+              <button
+                type="button"
+                className="add-sub-quantity"
+                onClick={clickAddingPlus}
+                data-testid="plus"
+              >
+                <BsPlusSquare />
               </button>
               <p>{quantity}</p>
-              <button type="button" className="add-sub-quantity">
-                <BsDash />
+              <button
+                type="button"
+                className="add-sub-quantity"
+                onClick={clickSubQuantity}
+                data-testid="minus"
+              >
+                <BsDashSquare />
               </button>
             </div>
             <button type="button" className="add-to-cart-button">
-              Add to Cart
+              ADD TO CART
             </button>
           </div>
         </div>
         <div className="similar-products">
-          <SimilarProductItem similarProducts={similarProducts} />
+          <h1>Similar Products</h1>
+          <ul className="similar-products-container">
+            {similarProducts.map(eachItem => (
+              <SimilarProductItem
+                key={eachItem.id}
+                similarProducts={eachItem}
+              />
+            ))}
+          </ul>
         </div>
       </div>
     </>
   )
 
-  const FailureViewOfProduct = error => console.log(error)
+  const getBackToProducts = () => {
+    const {history} = props
+    return history.replace('/products')
+  }
+  const FailureViewOfProduct = () => (
+    <div>
+      <Header />
+      <div className="error-view-container">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png"
+          alt="failure view"
+          className="error-view-image"
+        />
+        <h1 className="error-view-heading">Product Not Found</h1>
+        <button
+          type="button"
+          className="continue-shopping-button"
+          onClick={getBackToProducts}
+        >
+          continue shopping
+        </button>
+      </div>
+    </div>
+  )
 
   const renderLoader = () => (
-    <div>
+    <div data-testid="loader">
       <Loader type="ThreeDots" color="#fff" width={50} height={50} />
     </div>
   )

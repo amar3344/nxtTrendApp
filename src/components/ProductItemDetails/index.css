@@ -63,6 +63,7 @@
 }
 
 .star-rating {
+  color: #fff;
 }
 
 .review-text {
@@ -128,10 +129,42 @@
   font-weight: bold;
   padding: 10px;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .similar-products {
   width: 1000px;
   margin: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.error-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-view-image {
+  width: 350px;
+  height: 300px;
+  background-size: cover;
+}
+
+.error-view-heading {
+  font-size: 25px;
+  font-weight: bold;
+  color: #12022f;
+}
+
+.continue-shopping-button {
+  background-color: #3b82f6;
+  padding: 10px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
